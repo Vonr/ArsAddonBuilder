@@ -7,7 +7,7 @@
   "pages": [
     {
       "title": "Enchanter\u0027s Bangle",
-      "description": "ars_elemental.page1.base_bangle",
+      "description": "This magic accessory has a chance to boost the damage of your spells. Its magic is unstable but perhaps attuning it to a school can stabilize its abilities.",
       "icon": "ars_elemental:base_bangle"
     },
     {
