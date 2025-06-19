@@ -6,7 +6,7 @@
   "category": "ars_nouveau:spell_casting",
   "pages": [
     {
-      "description": "Having these threads  on the spellbinder  will allow to cast  spells as if the  focus was equipped."
+      "description": "Having these threads  on the spellbinder  will allow to unlock  the glyph combos as  if the corresponding  focus was equipped.  In a level 2 slot,  they will give a  small damage bonus  to the spells from  the matching school."
     },
     {
       "recipe_1": "ars_nouveau:thread_summon_focus"
