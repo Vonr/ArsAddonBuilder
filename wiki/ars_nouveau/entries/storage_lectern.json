@@ -15,10 +15,10 @@
     },
     {
       "title": "Advanced Usage",
-      "description": "Items can be  automatically  inserted into the  lectern by placing  them into an unbound  inventory that is  adjacent to the  lectern. You may  also link a lectern  to the \u0027main\u0027  lectern in order to  extend the view and  access of the  original lectern,"
+      "description": "Items can be  automatically  inserted into the  lectern by placing  them into an unbound  inventory that is  adjacent to the  lectern. Automatic  import may be  disabled by  providing a redstone  signal. You may also  link a lectern to the  \u0027main\u0027 lectern in"
     },
     {
-      "description": "these lecterns can  be chained together  within 30 blocks  indefinitely. Once a  lectern is linked to  another lectern, it  will no longer be  able to connect to  inventories or  accept bookwyrms."
+      "description": "order to extend the  view and access of  the original  lectern, these  lecterns can be  chained together  within 30 blocks  indefinitely. Once a  lectern is linked to  another lectern, it  will no longer be  able to connect to  inventories or  accept bookwyrms."
     },
     {
       "title": "Storage Tabs",
