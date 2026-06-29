@@ -150,6 +150,11 @@ jobs:
           java: ${{ env.JAVA_VERSION }}
           xvfb: true
 
+      - name: Convert to WebP
+        run: |
+          curl -L https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0-linux-x86-64.tar.gz | tar -xvz --wildcards '*/bin/cwebp'
+          find . -name '*.png' -exec parallel -I@ start='"$(du -bs "@" | cut -f 1)"' \&\& libwebp-1.6.0-linux-x86-64/bin/cwebp -lossless -z 9 '@' -o '{.}.webp' 2>/dev/null \&\& end='"$(du -bs "{.}.webp" | cut -f 1)"' \&\& printf '"%s: %s -> %s bytes (%d reduction)\n"' '@' '$start' '$end' '$(($start - $end))' \&\& rm '@' ::: {} \+
+
       - name: Build tomes.json
         run: python3 scripts/build_tomes.py output output/manifests/tomes.json
 
@@ -181,13 +186,6 @@ jobs:
 
       - name: Build manifest.json
         run: python3 scripts/build_manifest.py output output/manifest.json
-
-      - name: Optimize PNGs
-        run: |
-          curl -LO https://github.com/oxipng/oxipng/releases/download/v10.1.1/oxipng-10.1.1-x86_64-unknown-linux-gnu.tar.gz
-          tar -xvzf oxipng-10.1.1-x86_64-unknown-linux-gnu.tar.gz
-          oxipng-10.1.1-x86_64-unknown-linux-gnu/oxipng -o max --fast --strip safe --alpha -r output
-          rm -rf oxipng-10.1.1-x86_64-unknown-linux-gnu
 
       - name: Sync output to R2
         run: aws s3 sync output/ s3://ars-guide-assets --delete --size-only --no-progress --only-show-errors --endpoint-url https://fb2e8a157cc36da2700bf6655622bf89.r2.cloudflarestorage.com
